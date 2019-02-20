@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it-it">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paper | Salesforce Project Viewer | GN Srl</title>
+	<link rel="icon" href="assets/icon.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/slds-min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body class="noscroll">
+    <div class="slds-scope">
+        <!-- LOADER -->
+        <section id="loader">
+            <div class="demo-only" style="height: 640px;">
+                <section class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <img src="assets/logo.png" class="slds-align_absolute-center slds-m-vertical_small" width="260px">
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <h2 id="loader-message" class="slds-text-heading_small slds-align_absolute-center">Caricamento...</h2>
+                            <h2 id="loader-message-1" class="slds-text-heading_small slds-align_absolute-center">Sessione scaduta, effettua il&nbsp;<a href="/login"><b>login</b></a>&nbsp;per accedere.</h2>
+                            <h2 id="loader-message-2" class="slds-text-heading_small slds-align_absolute-center">Per vedere questa pagina, effettua il&nbsp;<a href="/login"><b>login</b></a>.</h2>
+                        </div>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open loader-bg"></div>
+            </div>
+        </section>
+		<!--HEADER-->
+        <header class="slds-global-header_container">
+            <div class="slds-global-header slds-grid slds-grid_align-spread">
+                <!--LOGO-->
+				<div class="slds-global-header__item">
+                    <h1 class="slds-text-heading_medium">
+                        <img src="assets/gnet.png" width="150px">
+                        <b>&nbsp; Salesforce Project Viewer</b>
+                    </h1>
+				</div>
+				<!--ITEM-->
+                <div class="slds-global-header__item">
+                    <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                        <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action toggleuserpopup">
+                            <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+								<img alt="Utente" src="assets/avatar.png" title="Utente">
+							</span>
+                        </button>
+                    </div>
+                    <section id="userpopup" class="slds-popover slds-nubbin_top-right slds-dynamic-menu slds-p-around_medium" style="position:absolute;right:12px;top:42px">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action">
+                                    <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                                        <img alt="Utente" src="assets/avatar.png" title="Utente">
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="slds-media__body">
+                                <p id="ajax-username" class="slds-text-heading_small slds-m-bottom_x-small"></p>
+                                <a id="logout">Esci</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+		</header>
+		<!--HEADER-->
+        <div class="slds-grid" style="margin-top:4em">
+            <div class="slds-col slds-size_1-of-6" style="padding:1rem;padding-right:0;">
+                <article class="slds-card">
+                    <nav class="slds-nav-vertical">
+                        <div class="slds-nav-vertical__section">
+                            <h2 id="entity-header" class="slds-nav-vertical__title slds-text-heading_medium"><b>Projects</b></h2>
+                            <ul id="ajax-projects-list"></ul>
+                        </div>
+                    </nav>
+                </article>
+            </div>
+            <div class="slds-col slds-size_5-of-6" style="padding:1rem">
+                <div class="slds-page-header">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media slds-clearfix">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-drafts">
+                                        <div class="slds-icon slds-page-header__icon">
+                                            <img src="assets/project.svg" width="23px" style="margin-top:4px;margin-left:4px">
+                                        </div>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1>
+                                                <span id="ajax-current-project-name" class="slds-page-header__title slds-truncate"></span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <p class="slds-page-header__name-meta">Matteo Veronesi • Stage 2019</p>
+                                </div>
+                                <div class="slds-float_right">
+                                    <button class="slds-button slds-button_neutral slds-p-vertical_xx-small opentaskmodal">Aggiungi Task</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="chart" class="slds-card slds-clearfix" style="margin-top:1rem"></div>
+                <div class="slds-card" style="margin-top:1rem">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead id="ajax-table-head"></thead>
+                        <tbody id="ajax-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="taskmodal">
+            <section class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse closetaskmodal" title="Chiudi">
+                        <div class="slds-button__icon slds-button__icon_large">
+                            <img src="assets/close.svg" width="22px" style="margin-top:1px;margin-left:4px">
+                        </div>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Aggiungi Task</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-form-element">
+                        <form id="addtask">
+                            <label class="slds-form-element__label slds-m-top_none" for="ajax-task-nome">Nome Task</label>
+                            <div class="slds-form-element__control slds-m-top_xx-small">
+                                <input type="text" id="ajax-task-name" class="slds-input slds-p-around_xx-small slds-p-horizontal_small">
+                            </div>
+                            <label class="slds-form-element__label slds-m-top_medium" for="ajax-task-date-start">Data di inizio lavorazione</label>
+                            <div class="slds-form-element__control slds-m-top_xx-small">
+                                <input type="date" id="ajax-task-date-start" class="slds-input slds-p-around_xx-small slds-p-horizontal_small">
+                            </div>
+                            <label class="slds-form-element__label slds-m-top_medium" for="ajax-task-date-end">Data di fine lavorazione prevista</label>
+                            <div class="slds-form-element__control slds-m-top_xx-small">
+                                <input type="date" id="ajax-task-date-end" class="slds-input slds-p-around_xx-small slds-p-horizontal_small">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral slds-p-around_xx-small slds-p-horizontal_small closetaskmodal">Annulla</button>
+                    <button class="slds-button slds-button_brand slds-p-around_xx-small slds-p-horizontal_small addtask">Aggiungi</button>
+                </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/build.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

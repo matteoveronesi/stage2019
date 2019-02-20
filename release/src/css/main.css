@@ -1,0 +1,89 @@
+@font-face{
+    font-family: SF;
+    src: url(../assets/fonts/SalesforceSans-Regular.ttf);
+}
+
+body{
+    background: linear-gradient(to top, #a0b4ce00 0, #a0b4ce);
+}
+
+.google{
+    background: #DB4437;
+    color: #fff;
+}
+.google:hover, .google:focus, .google:active{
+    background: #c44439;
+    color: #fff;
+}
+
+.linkedin{
+    background: #008cc9;
+    color: #fff;
+}
+
+.linkedin:hover, .linkedin:focus, .linkedin:active{
+    background: #0077b5;
+    color: #fff;
+}
+
+.slds-global-header__logo{
+    background-image: url(assets/logo.png);
+}
+
+div#taskmodal, section#userpopup, h2#loader-message-1, h2#loader-message-2{
+    display: none;
+}
+
+.loader-bg{
+    background: linear-gradient(to top, #fff 0, #a0b4ce);
+}
+
+.noscroll{
+    overflow: hidden;
+}
+
+#chart{
+    overflow: hidden;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 5px;
+}
+
+#chart div{
+    float: right;
+}
+
+g:nth-child(10) g text{
+    font-family: SF!important;
+    font-size: 12px!important;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar {
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    /*border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid #ccc;*/
+    background: #fff;
+    max-height: 500px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ccc, #eee);
+    border: 1px solid #aaa;
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    background: #ddd;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #bbb, #ddd);
+  }

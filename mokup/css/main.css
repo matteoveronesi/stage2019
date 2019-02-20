@@ -1,0 +1,38 @@
+@font-face{
+    font-family: SF;
+    src: url(../assets/fonts/SalesforceSans-Regular.ttf);
+}
+
+body{
+    background: linear-gradient(to top, #a0b4ce00 0, #a0b4ce);
+}
+
+text{
+    font-family: SF!important;
+}
+
+.google{
+    background: #DB4437;
+    color: #fff;
+}
+.google:hover, .google:focus, .google:active{
+    background: #c44439;
+    color: #fff;
+}
+
+.linkedin{
+    background: #008cc9;
+    color: #fff;
+}
+.linkedin:hover, .linkedin:focus, .linkedin:active{
+    background: #0077b5;
+    color: #fff;
+}
+
+.slds-global-header__logo{
+    background-image: url(assets/logo.png);
+}
+
+div#taskmodal, section#userpopup{
+    display: none;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "SalesforceProjectViewer",
+  "version": "0.1.0",
+  "description": "Salesforce Project Viewer",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js",
+    "postinstall": "echo SCV installato correttamente."
+  },
+  "author": "Matteo Veronesi",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "colors": "^1.3.2",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "ip": "^1.1.5",
+    "jsforce": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
