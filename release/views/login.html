@@ -4,48 +4,49 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Accedi | Salesforce Project Viewer | GN Srl</title>
+    <title>Accedi | Salesforce Project Viewer | GNet Srl</title>
 	<link rel="icon" href="assets/icon.png">
     <link rel="stylesheet" type="text/css" href="assets/styles/slds-min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body>
+<body class="body">
     <div class="slds-scope">
         <div class="slds-align_absolute-center">
             <div class="slds-m-top_xx-large" style="width:380px">
                 <img src="assets/logo.png" class="slds-align_absolute-center slds-m-top_small" width="260px">
                 <div class="slds-card slds-p-around_large slds-m-top_large">
                     <div class="slds-form-element slds-has-error">
-                        <div id="login-error" class="slds-form-element__help slds-m-top_none">Per avere accesso a questa pagina, è necessario effettuare il login.</div>
+                        <div id="login-error" class="slds-form-element__help slds-m-top_none">Effettua il login per accedere.</div>
                     </div>
                     <div class="slds-form-element slds-clearfix">
                         <form id="login">
                             <label class="slds-form-element__label slds-m-top_medium" for="user">Nome utente</label>
                             <div id="username-field" class="slds-form-element__control slds-m-top_xx-small">
-                                <input value="MarioRossi" type="text" id="user" class="slds-input slds-p-around_xx-small slds-p-horizontal_small" autocomplete="username">
+                                <input type="text" id="user" class="slds-input slds-p-around_xx-small slds-p-horizontal_small" autocomplete="username">
                             </div>
                             <label class="slds-form-element__label slds-m-top_medium" for="pass">Password</label>
                             <div id="password-field" class="slds-form-element__control slds-m-top_xx-small">
-                                <input value="ciao123" type="password" id="pass" class="slds-input slds-p-around_xx-small slds-p-horizontal_small" autocomplete="current-password">
+                                <input type="password" id="pass" class="slds-input slds-p-around_xx-small slds-p-horizontal_small" autocomplete="current-password">
                             </div>
                             <button class="slds-button slds-button_brand slds-m-top_large slds-float_right slds-p-around_xx-small" style="width:100%">Accedi</button>
                         </form>
-                        <button class="slds-button slds-button_destructive google slds-m-top_large slds-float_right slds-p-around_xx-small" style="width:100%"><img src="assets/google.png" width="24px" style="margin-bottom:2px">&nbsp;&nbsp;&nbsp;Accedi con Google</button>
-                        <button class="slds-button linkedin slds-m-top_large slds-float_right slds-p-around_xx-small" style="width:100%"><img src="assets/linkedin.svg" width="24px" style="margin-bottom:2px">&nbsp;&nbsp;&nbsp;Accedi con Linkedin</button>
-                </div>
-                    <hr class="slds-m-vertical_medium">
-                    <a href="https://login.salesforce.com/secur/forgotpassword.jsp?locale=it&lqs=startURL%3D%252Fvisualforce%252Fsession%253Furl%253Dhttps%25253A%25252F%25252Feu16.lightning.force.com%25252Flightning%25252Fpage%25252Fhome%26ec%3D302">Password dimenticata?</a>
+                        <button title="Non disponibile" class="disabled slds-button slds-button_destructive google slds-m-top_large slds-float_right slds-p-around_xx-small" style="width:100%"><img src="assets/google.png" width="24px" style="margin-bottom:2px">&nbsp;&nbsp;&nbsp;Accedi con Google</button>
+                        <button title="Non disponibile" class="disabled slds-button linkedin slds-m-top_large slds-float_right slds-p-around_xx-small" style="width:100%"><img src="assets/linkedin.svg" width="24px" style="margin-bottom:2px">&nbsp;&nbsp;&nbsp;Accedi con Linkedin</button>
+                    </div>
                 </div>
             </div>
         </div>
         <footer class="slds-p-around_medium slds-align_absolute-center">
-            © Copyright 2019 GN Srl&nbsp;
+            <a href="https://github.com/matteoveronesi/stage2019" target="_blank">SPV</a>
+            &nbsp;2.0.0 Copyright &copy; GNet Srl&nbsp;
             <a href="https://www.gnet.it" target="_blank">www.gnet.it</a>
         </footer>
-            
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js/ajax.js"></script>
-        <script src="js/main.js"></script>
     </div>
+    <div id="waiting"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/build.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

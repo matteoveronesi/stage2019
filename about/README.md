@@ -1,13 +1,21 @@
+<a href="https://github.com/matteoveronesi/stage2019/blob/master/README.md" style="font-size:16px">Home</a> > About
+
 # About the project
+
+Anything and much more, about this project.
 
 ## Documentation
 
-- [Changelog](CHANGELOG.md)
+- [**Project Behavior**](PROJECT.md) - The BTS of this project. 
 
-- [Manual](MANUAL.md)
+- [**Development**](DEVELOPMENT.md) - Detailed section for developing this project.
 
-## Journal & Project Management
+- [**Changelog**](CHANGELOG.md) - Implementations list for every version.
 
-- [Toggl](https://toggl.com/app/timer)
+- [**User Manual**](MANUAL.md) - A simple guide for a simple interface.
 
-- [Trello](https://trello.com/b/b5U7dGTw/stage-2019)
+## Journal & Project Management Apps
+
+- [**Toggl**](https://toggl.com/app/timer) - Useful time-tracker for projects.
+
+- [**Trello**](https://trello.com/) - Awesome tool for organizing things, like projects.

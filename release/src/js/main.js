@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    $("#chart").css("width",$("#chart").width())
-    getuserdata()
-
     $(".opentaskmodal").click(() =>{
         $("#taskmodal").fadeIn(100)
     })
@@ -12,14 +9,19 @@ $(document).ready(function () {
     })
 
     $(".addtask").click(() =>{
+        $("#waiting").show()
         var name = $("#ajax-task-name").val()
         var start = $("#ajax-task-date-start").val()
         var end = $("#ajax-task-date-end").val()
-        
-        if (name && start && end)
+        if (name && start && end){
             addtask(name, start, end)
-        else
-            alert('Non puoi lasciare vuoti dei campi.')
+            $("#modal-error").removeClass("slds-m-bottom_medium")
+        }
+        else{
+            $("#modal-error").text("Non puoi lasciare vuoti dei campi.")
+            $("#modal-error").addClass("slds-m-bottom_medium")
+            $("#waiting").hide()
+        }
     })
 
     $(".toggleuserpopup").click(() =>{
@@ -27,6 +29,7 @@ $(document).ready(function () {
     })
 
     $("#login").submit(function (e){
+        $("#waiting").show()
         $(".slds-form-element__control").removeClass("slds-has-error")
         e.preventDefault()
 
@@ -36,16 +39,25 @@ $(document).ready(function () {
         if (user !== "" && pass !== "")
             login(user, pass)
         else{
-            if (user === "")
+            if (user === ""){
                 $("#username-field").addClass("slds-has-error")
-            if (pass === "")
+                if (pass != "") 
+                    $("#login-error").text("Inserisci un Nome Utente.")
+            }
+            if (pass === ""){
                 $("#password-field").addClass("slds-has-error")
+                if (user != "") 
+                    $("#login-error").text("Inserisci la Password.")
+            }
+            if (user == "" && pass == "")
+                $("#login-error").text("Inserisci le credenziali.")
+
+            $("#waiting").hide()
         }      
     })
 
     $("#logout").click(() =>{
-        localStorage.removeItem("ttk")
-        window.open("/login","_self")
+        logout()
     })
 
     $("li.slds-nav-vertical__item").click(function(){
@@ -56,6 +68,27 @@ $(document).ready(function () {
         e.addClass("slds-is-active")
         $("#ajax-current-project-name").html(e.children().html())
         
-        build_table(projects_data[i].head,projects_data[i].body)
+        build_table(projects_data[i].head, projects_data[i].body)
+    })
+
+    $(".change").click(() =>{
+        $("body").toggleClass("body")
+        $("div#gradient").fadeToggle(300)
+        var ico1 = $("#avatar1")
+        var ico2 = $("#avatar2")
+        
+        if (ico1.attr("src") == "assets/avatar.png"){
+            ico1.attr("src","assets/avatar2.png")
+            ico2.attr("src","assets/avatar2.png")
+        }
+        else{
+            ico1.attr("src","assets/avatar.png")
+            ico2.attr("src","assets/avatar.png")
+        }
     })
 })
+
+function logout(){
+    localStorage.removeItem("ttk")
+    window.open("/login","_self")
+}

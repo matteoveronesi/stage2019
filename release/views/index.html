@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Paper | Salesforce Project Viewer | GN Srl</title>
+    <title>Elenco Casi | Salesforce Project Viewer | GNet Srl</title>
 	<link rel="icon" href="assets/icon.png">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/slds-min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body class="noscroll">
+<body class="noscroll body">
     <div class="slds-scope">
         <!-- LOADER -->
         <section id="loader">
@@ -44,16 +44,16 @@
                     <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
                         <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action toggleuserpopup">
                             <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
-								<img alt="Utente" src="assets/avatar.png" title="Utente">
+								<img id="avatar1" alt="Utente" src="assets/avatar.png" title="Utente">
 							</span>
                         </button>
                     </div>
                     <section id="userpopup" class="slds-popover slds-nubbin_top-right slds-dynamic-menu slds-p-around_medium" style="position:absolute;right:12px;top:42px">
                         <div class="slds-media">
                             <div class="slds-media__figure">
-                                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action">
+                                <button class="slds-button slds-global-actions__avatar slds-global-actions__item-action change">
                                     <span class="slds-avatar slds-avatar_circle slds-avatar_large">
-                                        <img alt="Utente" src="assets/avatar.png" title="Utente">
+                                        <img id="avatar2" alt="Utente" src="assets/avatar.png" title="Utente">
                                     </span>
                                 </button>
                             </div>
@@ -98,7 +98,7 @@
                                             </h1>
                                         </div>
                                     </div>
-                                    <p class="slds-page-header__name-meta">Matteo Veronesi • Stage 2019</p>
+                                    <p id="ajax-account-contact-info" class="slds-page-header__name-meta"></p>
                                 </div>
                                 <div class="slds-float_right">
                                     <button class="slds-button slds-button_neutral slds-p-vertical_xx-small opentaskmodal">Aggiungi Task</button>
@@ -129,6 +129,9 @@
                     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Aggiungi Task</h2>
                 </header>
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-form-element slds-has-error">
+                        <div id="modal-error" class="slds-form-element__help slds-m-top_none"></div>
+                    </div>
                     <div class="slds-form-element">
                         <form id="addtask">
                             <label class="slds-form-element__label slds-m-top_none" for="ajax-task-nome">Nome Task</label>
@@ -155,6 +158,8 @@
             <div class="slds-backdrop slds-backdrop_open"></div>
         </div>
     </div>
+    <div id="gradient"></div>
+    <div id="waiting"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
@@ -162,5 +167,11 @@
     <script src="js/build.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function(){
+            getuserdata(true)
+            startobserver()
+        })
+    </script>
 </body>
 </html>

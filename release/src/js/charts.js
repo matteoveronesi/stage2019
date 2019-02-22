@@ -1,5 +1,10 @@
-google.charts.load('current', {'packages': ['gantt'], 'language': 'it'}) 
+google.charts.load('current', {'packages': ['gantt'], 'language': 'it_it'}) 
 
+/**
+ * Costruisce il grafico svg di un progetto partendo da i dati forniti
+ * 
+ * @param {array} rows contiene le righe di un progetto, overo i Case
+ */
 function draw_chart(rows) {
     var data = new google.visualization.DataTable()
     data.addColumn('string', 'Task ID')
@@ -7,7 +12,7 @@ function draw_chart(rows) {
     data.addColumn('string', 'Resource')
     data.addColumn('date', 'Start Date')
     data.addColumn('date', 'End Date')
-    data.addColumn('number', 'Durata')
+    data.addColumn('number', 'Duration')
     data.addColumn('number', 'Percent Complete')
     data.addColumn('string', 'Dependencies')
 
